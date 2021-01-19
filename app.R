@@ -132,11 +132,8 @@ ui <- navbarPage("", theme = shinytheme("flatly"), collapsible = T,
                             tags$li(tags$b("NIH-HIES score > 40: "), "probable"),
                             )))),
           fluidRow(
-            column(6, h3(textOutput("stat3_score"))),
-            column(6, h3(textOutput("dock8_score")))
-          ),
-          fluidRow(
-            column(6,
+            column(6, 
+                   h3(textOutput("stat3_score")),
                    bsCollapsePanel(p(icon("bars"),HTML('&nbsp;'), "STAT3 score components"),
                                    div(DT::dataTableOutput("stat3_table"), style = "overflow-x: auto;")),
                    fluidRow(
@@ -151,9 +148,10 @@ ui <- navbarPage("", theme = shinytheme("flatly"), collapsible = T,
                             tags$li(tags$b("Definitive criteria"), 
                                     tags$li(style = "padding-left: 50px;", "Meets probably criteria"),
                                     tags$li(style = "padding-left: 50px;", "Dominant negative STAT3 mutation"))
-                            ))
+                     ))
                    ),
-            column(6,
+            column(6, 
+                   h3(textOutput("dock8_score")),
                    bsCollapsePanel(p(icon("bars"),HTML('&nbsp;'), "DOCK8 score components"),
                                    div(DT::dataTableOutput("dock8_table"), style = "overflow-x: auto;")),
                    fluidRow(
@@ -162,12 +160,9 @@ ui <- navbarPage("", theme = shinytheme("flatly"), collapsible = T,
                             tags$li(tags$b("Criteria: "), "91.4% sensitivity, 87.5% specificity", 
                                     tags$li(style = "padding-left: 50px;", "DOCK8 score > 30"),
                                     tags$li(style = "padding-left: 50px;", "NIH-HIES score > 20"),
-                                    tags$li(style = "padding-left: 50px;", "DOCK8 score > STAT3 score"))
-                     ))
+                                    tags$li(style = "padding-left: 50px;", "DOCK8 score > STAT3 score"))))
                    )
           ),
-          fluidRow(column(12, h1(" "))),
-          fluidRow(column(12, h1(" "))),
           fluidRow(column(12, h3("References"))),
           fluidRow(
             column(12, tags$ul(
